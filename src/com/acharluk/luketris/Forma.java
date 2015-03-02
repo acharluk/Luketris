@@ -15,6 +15,7 @@ public class Forma {
 
     public Forma() {
         coords = new int[4][2];
+        setForma(Tetriminos.Sin);
     }
 
     public void setForma(Tetriminos forma) {
@@ -65,7 +66,50 @@ public class Forma {
         return formaTetrimino;
     }
 
+    public int minX() {
+        int m = coords[0][0];
+        for (int i = 0; i < 4; i++) {
+            m = Math.min(m, coords[i][0]);
+        }
+        return m;
+    }
 
+
+    public int minY() {
+        int m = coords[0][1];
+        for (int i = 0; i < 4; i++) {
+            m = Math.min(m, coords[i][1]);
+        }
+        return m;
+    }
+
+    public Forma rotarIzquierda() {
+        if (formaTetrimino == Tetriminos.Cuadrado)
+            return this;
+
+        Forma nuevo = new Forma();
+        nuevo.formaTetrimino = formaTetrimino;
+
+        for (int i = 0; i < 4; ++i) {
+            nuevo.setX(i, getY(i));
+            nuevo.setY(i, - getX(i));
+        }
+        return nuevo;
+    }
+
+    public Forma rotarDerecha() {
+        if (formaTetrimino == Tetriminos.Cuadrado)
+            return this;
+
+        Forma nuevo = new Forma();
+        nuevo.formaTetrimino = formaTetrimino;
+
+        for (int i = 0; i < 4; ++i) {
+            nuevo.setX(i, - getY(i));
+            nuevo.setY(i, getX(i));
+        }
+        return nuevo;
+    }
 
 
 }

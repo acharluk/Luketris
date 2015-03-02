@@ -8,9 +8,7 @@ import javax.swing.*;
 public class Luketris extends JFrame {
 
     public Luketris() {
-        Forma f = new Forma();
-        f.setFormaAleatoria();
-        System.out.println(f.getX(1));
+
     }
 
     public static void main (String[] args) {
