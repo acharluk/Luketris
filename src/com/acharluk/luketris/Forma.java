@@ -1,5 +1,7 @@
 package com.acharluk.luketris;
 
+import java.util.Random;
+
 /**
  * Created by ACharLuk on 02/03/2015.
  */
@@ -36,6 +38,13 @@ public class Forma {
         formaTetrimino = forma;
     }
 
+    public void setFormaAleatoria() {
+        Random r = new Random();
+        int x = Math.abs(r.nextInt()) % 7 + 1;
+        Tetriminos[] values = Tetriminos.values();
+        setForma(values[x]);
+    }
+
     private void setX(int index, int x) {
         coords[index][0] = x;
     }
@@ -55,6 +64,8 @@ public class Forma {
     public Tetriminos getShape() {
         return formaTetrimino;
     }
+
+
 
 
 }
