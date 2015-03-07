@@ -62,7 +62,7 @@ public class Forma {
         return coords[index][1];
     }
 
-    public Tetriminos getShape() {
+    public Tetriminos getForma() {
         return formaTetrimino;
     }
 
